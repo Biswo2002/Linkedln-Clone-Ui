@@ -4,6 +4,7 @@ import React from 'react'
 import { PrivateRoutesType } from '../../types/AllRoutes'
 import Login from '../../screen/private/Login'
 import SignUp from '../../screen/private/SignUp'
+import ForgotPassword from '../../screen/private/ForgotPassword'
 
 const PrivateRoutes = () => {
   const Stack = createNativeStackNavigator<PrivateRoutesType>();
@@ -11,6 +12,7 @@ const PrivateRoutes = () => {
     <Stack.Navigator initialRouteName='Login' screenOptions={{
       headerShown: false
     }}  >
+      <Stack.Screen name='ForgotPassword' component={ForgotPassword} />
       <Stack.Screen name='Login' component={Login} />
       <Stack.Screen name='SignUp' component={SignUp} />
     </Stack.Navigator>

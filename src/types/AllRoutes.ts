@@ -1,12 +1,13 @@
-import {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
 import {CompositeNavigationProp, RouteProp} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
 
 export type PublicRoutesType = {};
 
 export type PrivateRoutesType = {
   Login: undefined;
   SignUp: undefined;
+  ForgotPassword: undefined;
 };
 
 export type BottomTabTypes = {};

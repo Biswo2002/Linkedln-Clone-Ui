@@ -1,6 +1,6 @@
 import { Dimensions, StyleSheet } from 'react-native'
 import React from 'react'
-import { Box, Button, HStack, Icon, Image, Input, Pressable, Text } from 'native-base'
+import { Box, Button, Checkbox, HStack, Icon, Image, Input, Pressable, ScrollView, Text } from 'native-base'
 import { COLORS, FONTS } from '../../styles'
 import { useNavigation } from '@react-navigation/native'
 import { PrivateNavigationProps } from '../../types/AllRoutes'
@@ -24,147 +24,185 @@ const SignUp = () => {
             title: 'Continue with Facebook',
         },
     ]
-
-
     const [show, setShow] = React.useState(false);
     const { navigate } = useNavigation<PrivateNavigationProps>();
     return (
         <Box safeArea bgColor={COLORS.SECONDARY} flex={1} >
-            <Image source={{ uri: 'https://brand.linkedin.com/apps/settings/wcm/designs/linkedin/katy/global/clientlibs/resources/img/default-share.png' }} alt={''}
-                width={Dimensions.get('window').width / 3}
-                height={'32'}
-            />
-            <Box
-                ml={'4'}
-            >
-                <Text
-                    fontSize={'3xl'}
-                    bold
-                    fontFamily={FONTS[600].normal}
-                    color={'gray.900'}
-                >
-                    Sign in
-                </Text>
-                <HStack py={2} >
-                    <Text
-                        color={'gray.500'}
-                        fontSize={'sm'}
-                        fontFamily={FONTS[500].normal}
-                    >
-                        or
-                    </Text>
-                    <Pressable
-                        onPress={() => navigate('Login')}
-                    >
-                        <Text
-                            color={COLORS.PRIMARY}
-                            fontSize={'md'}
-                            ml={2}
-                            bold
-                            fontFamily={FONTS[800].normal}
-                        >
-                            join Linkedln
-                        </Text>
-                    </Pressable>
-                </HStack>
-            </Box>
-            <Box
-                width={Dimensions.get('window').width / 1.08}
-                m={'4'}
-                p={2}
-            >
-                <Input
-                    placeholder='Email or Phone '
-                    variant={'underlined'}
-                    focusOutlineColor={'gray.900'}
-                    fontSize={'md'}
-                    fontFamily={FONTS[600].normal}
-                    color={'gray.900'}
-                    fontWeight={'600'}
-                    placeholderTextColor={'gray.600'}
-                />
-                <Input
-                    type={show ? "text" : "password"}
-                    mt={5}
-                    placeholder='Password '
-                    variant={'underlined'}
-                    focusOutlineColor={'gray.900'}
-                    fontSize={'md'}
-                    fontFamily={FONTS[600].normal}
-                    color={'gray.900'}
-                    fontWeight={'600'}
-                    placeholderTextColor={'gray.600'}
-                    InputRightElement={<Pressable onPress={() => setShow(!show)}
-                    >
-                        <Icon as={<MaterialIcons name={show ? "visibility" : "visibility-off"} />}
-                            size={5} mr="2"
-                            color="muted.400"
-                        />
-                    </Pressable>}
-                />
-            </Box>
-            <Button
-                colorScheme={'blue'}
-                width={Dimensions.get('window').width / 1.1}
-                ml={4}
-                mr={4}
-                mt={6}
-                p={3}
-                borderRadius={'full'}
-            >
-                <Text
-                    fontSize={'md'}
-                    color={COLORS.SECONDARY}
-                    bold
-                    fontFamily={FONTS[600].normal}
-                    px={2}
-                >
-                    Continue
-                </Text>
-            </Button>
-            <Text
-                textAlign={'center'}
-                p={'4'}
-                fontSize={'sm'}
-                bold
-                fontFamily={FONTS[600].normal}
-            >
-                or
-            </Text>
-            {
-                typesLogin.map(item => (
-                    <React.Fragment key={item?.id}  >
-                        <HStack
-                            alignItems={'center'}
-                            justifyContent={'center'}
-                            borderWidth={'.8'}
-                            width={Dimensions.get('window').width / 1.1}
-                            ml={'4'}
-                            mt={2}
-                            mb={2}
-                            mr={3}
-                            borderRadius={'full'}
-                            p={.5}
+            <ScrollView showsVerticalScrollIndicator={false} >
 
+                <Image source={{ uri: 'https://brand.linkedin.com/apps/settings/wcm/designs/linkedin/katy/global/clientlibs/resources/img/default-share.png' }} alt={''}
+                    width={Dimensions.get('window').width / 3}
+                    height={'32'}
+                />
+                <Box
+                    ml={'4'}
+                >
+                    <Text
+                        fontSize={'3xl'}
+                        bold
+                        fontFamily={FONTS[600].normal}
+                        color={'gray.900'}
+                    >
+                        Sign in
+                    </Text>
+                    <HStack py={2} >
+                        <Text
+                            color={'gray.500'}
+                            fontSize={'sm'}
+                            fontFamily={FONTS[500].normal}
                         >
-                            <Image source={{ uri: item?.img }} alt={''}
-                                size={'xs'}
-                                borderRadius={'md'}
-                                resizeMode={'contain'}
-                            />
+                            or
+                        </Text>
+                        <Pressable
+                            onPress={() => navigate('Login')}
+                        >
                             <Text
+                                color={COLORS.PRIMARY}
                                 fontSize={'md'}
-                                bold
-                                fontFamily={FONTS[600].normal}
-                                color={'gray.800'}
                                 ml={2}
+                                bold
+                                fontFamily={FONTS[800].normal}
                             >
-                                {item?.title}
+                                join Linkedln
                             </Text>
-                        </HStack>
-                    </React.Fragment>
-                ))
-            }
+                        </Pressable>
+                    </HStack>
+                </Box>
+                <Box
+                    width={Dimensions.get('window').width / 1.08}
+                    m={'4'}
+                    p={2}
+                >
+                    <Input
+                        placeholder='Email or Phone '
+                        variant={'underlined'}
+                        focusOutlineColor={'gray.900'}
+                        fontSize={'md'}
+                        fontFamily={FONTS[600].normal}
+                        color={'gray.900'}
+                        fontWeight={'600'}
+                        placeholderTextColor={'gray.600'}
+                    />
+                    <Input
+                        type={show ? "text" : "password"}
+                        mt={5}
+                        placeholder='Password '
+                        variant={'underlined'}
+                        focusOutlineColor={'gray.900'}
+                        fontSize={'md'}
+                        fontFamily={FONTS[600].normal}
+                        color={'gray.900'}
+                        fontWeight={'600'}
+                        placeholderTextColor={'gray.600'}
+                        InputRightElement={<Pressable onPress={() => setShow(!show)}
+                        >
+                            <Icon as={<MaterialIcons name={show ? "visibility" : "visibility-off"} />}
+                                size={5} mr="2"
+                                color="muted.400"
+                            />
+                        </Pressable>}
+                    />
+                </Box>
+                <HStack
+                    space={2}
+                    ml={'5'}
+                    alignItems={'center'}
+                >
+                    <Checkbox
+                        shadow={2}
+                        value="test"
+                        accessibilityLabel="This is a dummy checkbox"
+                        defaultIsChecked
+                        bgColor={'blue.500'}
+                    >
+                        Remember me.
+                    </Checkbox>
+                    <Text
+                        color={COLORS.PRIMARY}
+                        fontSize={'sm'}
+                        bold
+                        fontFamily={FONTS[600].normal}
+                    >
+                        Learn more
+                    </Text>
+                </HStack>
+                <Pressable
+                    m={5}
+                    onPress={() => navigate('ForgotPassword')}
+                >
+                    <Text
+                        fontSize={'md'}
+                        bold
+                        fontFamily={FONTS[700].normal}
+                        color={COLORS.PRIMARY}
+                    >
+                        Forgot Password
+                    </Text>
+                </Pressable>
+                <Button
+                    colorScheme={'blue'}
+                    width={Dimensions.get('window').width / 1.1}
+                    ml={4}
+                    mr={4}
+                    mt={6}
+                    p={3}
+                    borderRadius={'full'}
+                >
+                    <Text
+                        fontSize={'md'}
+                        color={COLORS.SECONDARY}
+                        bold
+                        fontFamily={FONTS[600].normal}
+                        px={2}
+                    >
+                        Continue
+                    </Text>
+                </Button>
+                <Text
+                    textAlign={'center'}
+                    p={'4'}
+                    fontSize={'sm'}
+                    bold
+                    fontFamily={FONTS[600].normal}
+                >
+                    or
+                </Text>
+                {
+                    typesLogin.map(item => (
+                        <React.Fragment key={item?.id}  >
+                            <HStack
+                                alignItems={'center'}
+                                justifyContent={'center'}
+                                borderWidth={'.8'}
+                                width={Dimensions.get('window').width / 1.1}
+                                ml={'4'}
+                                mt={2}
+                                mb={2}
+                                mr={3}
+                                borderRadius={'full'}
+                                p={.5}
+
+                            >
+                                <Image source={{ uri: item?.img }} alt={''}
+                                    size={'xs'}
+                                    borderRadius={'md'}
+                                    resizeMode={'contain'}
+                                />
+                                <Text
+                                    fontSize={'md'}
+                                    bold
+                                    fontFamily={FONTS[600].normal}
+                                    color={'gray.800'}
+                                    ml={2}
+                                >
+                                    {item?.title}
+                                </Text>
+                            </HStack>
+                        </React.Fragment>
+                    ))
+                }
+
+            </ScrollView>
         </Box>
     )
 }
