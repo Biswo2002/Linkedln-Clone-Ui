@@ -163,35 +163,8 @@ const SignUp = () => {
                             </Text>
                         </HStack>
                     </React.Fragment>
-
                 ))
             }
-
-            {/* <HStack
-                alignItems={'center'}
-                justifyContent={'center'}
-                borderWidth={'.8'}
-                width={Dimensions.get('window').width / 1.1}
-                ml={'4'}
-                borderRadius={'full'}
-                mt={4}
-                p={.5}
-            >
-                <Image source={{ uri: 'https://static.vecteezy.com/system/resources/previews/002/557/415/non_2x/facebook-snapchat-instagram-facebook-color-icons-free-vector.jpg' }} alt={''}
-                    size={'xs'}
-                    borderRadius={'sm'}
-                    resizeMode={'contain'}
-                />
-                <Text
-                    fontSize={'md'}
-                    bold
-                    fontFamily={FONTS[600].normal}
-                    color={'gray.800'}
-                    ml={2}
-                >
-                    Continue with Google
-                </Text>
-            </HStack> */}
         </Box>
     )
 }
